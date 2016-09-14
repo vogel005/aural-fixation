@@ -13,8 +13,11 @@ TEMPLATE = app
 
 
 SOURCES += main.cpp\
-        mainwindow.cpp
+        mainwindow.cpp \
+    filechooser.cpp
 
-HEADERS  += mainwindow.h
+HEADERS  += mainwindow.h \
+    filechooser.h
 
-FORMS    += mainwindow.ui
+FORMS    += mainwindow.ui \
+    filechooser.ui
