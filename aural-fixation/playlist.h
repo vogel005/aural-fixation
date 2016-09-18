@@ -7,11 +7,11 @@ class Playlist
 {
 public:
     Playlist();
-    void addTrack();
-    void removeTrack();
-    iterator<list> trackListIterator;
+    void addTrack(AudioTrack);
+    void removeTrack(AudioTrack);
+    std::list<AudioTrack>::iterator trackListIterator;
 private:
-    list<AudioTrack> trackList;
+    std::list<AudioTrack> trackList;
     int lengthInSeconds;
 };
 

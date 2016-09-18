@@ -7,7 +7,7 @@ class AudioPlayer
 public:
     AudioPlayer();
 private:
-    PlayList CurrentPlaylist;
+    Playlist CurrentPlaylist;
 
     void shuffle();
     void play();

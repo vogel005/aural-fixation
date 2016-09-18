@@ -15,13 +15,16 @@ void Playlist::addTrack(AudioTrack selectedTrack)
 
 void Playlist::removeTrack(AudioTrack selectedTrack)
 {
+    AudioTrack currentTrack = selectedTrack;
+
     for(trackListIterator = trackList.begin();
         trackListIterator != trackList.end();
         trackListIterator++)
     {
-        if(this->trackListIterator->TrackName == selectedTrack.TrackName)
+        currentTrack = *trackListIterator;
+        if(currentTrack.Equals(selectedTrack))
         {
-            this->trackList.remove(selectedTrack);
+            trackListIterator = trackList.erase(trackListIterator);
         }
     }
 
