@@ -9,6 +9,7 @@ public:
     Playlist();
     void addTrack(AudioTrack);
     void removeTrack(AudioTrack);
+    //test
     std::vector<AudioTrack>::iterator trackListIterator;
 private:
     std::vector<AudioTrack> trackList;
