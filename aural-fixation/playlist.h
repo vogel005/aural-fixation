@@ -1,7 +1,7 @@
 #ifndef PLAYLIST_H
 #define PLAYLIST_H
 #include "audiotrack.h"
-#include <list>
+#include <vector>
 
 class Playlist
 {
@@ -9,9 +9,9 @@ public:
     Playlist();
     void addTrack(AudioTrack);
     void removeTrack(AudioTrack);
-    std::list<AudioTrack>::iterator trackListIterator;
+    std::vector<AudioTrack>::iterator trackListIterator;
 private:
-    std::list<AudioTrack> trackList;
+    std::vector<AudioTrack> trackList;
     int lengthInSeconds;
 };
 
