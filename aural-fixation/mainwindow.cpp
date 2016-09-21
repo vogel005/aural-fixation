@@ -20,10 +20,16 @@ MainWindow::~MainWindow()
 //note - play() starts from beginning. does not resume if paused prior to press
 void MainWindow::on_playButton_clicked()
 {
+    if(!player->state() == player->PlayingState)
+    {
+        player->setMedia(QUrl::fromLocalFile("../res/words.wav"));
+        player->setVolume(100);
+        player->play();
+    }
     //this path will be different on your machine until we get the file system figured out
-    player->setMedia(QUrl::fromLocalFile("/Users/trevorcantrell/Desktop/words.wav"));
-    player->setVolume(100);
-    player->play();
+    else{
+
+    }
 }
 
 //Volume Slider
