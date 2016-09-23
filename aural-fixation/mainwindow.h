@@ -22,6 +22,12 @@ private slots:
 
     void on_pauseButton_clicked();
 
+    void on_SliderProgress_sliderMoved(int position);
+
+    void on_positionChanged(qint64 position);
+
+    void on_durationChanged(qint64 position);
+
 private:
     Ui::MainWindow *ui;
 };
