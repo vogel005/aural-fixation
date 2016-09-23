@@ -9,6 +9,8 @@ MainWindow::MainWindow(QWidget *parent) :
     ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+
 }
 
 MainWindow::~MainWindow()
@@ -30,6 +32,10 @@ void MainWindow::on_playButton_clicked()
     else{
 
     }
+
+    connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
+    connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
+
 }
 
 //Volume Slider
@@ -42,4 +48,19 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 void MainWindow::on_pauseButton_clicked()
 {
     player->pause();
+}
+
+void MainWindow::on_SliderProgress_sliderMoved(int position)
+{
+    player->setPosition(position);
+}
+
+void MainWindow::on_positionChanged(qint64 position)
+{
+    ui->SliderProgress->setValue(position);
+}
+
+void MainWindow::on_durationChanged(qint64 position)
+{
+    ui->SliderProgress->setMaximum(position);
 }
