@@ -10,5 +10,7 @@ FileChooser::FileChooser(QWidget *parent) :
 
 FileChooser::~FileChooser()
 {
+//test
+
     delete ui;
 }
