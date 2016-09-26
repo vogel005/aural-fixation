@@ -10,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
 {
     player = new QMediaPlayer;
     ui->setupUi(this);
-    player->setMedia(QUrl::fromLocalFile("../res/words.wav"));
+    player->setMedia(QUrl::fromLocalFile("../res/Sample.mp3"));
     player->setVolume(100);
     connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
     connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
