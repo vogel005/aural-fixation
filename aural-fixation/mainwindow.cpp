@@ -2,15 +2,18 @@
 #include "ui_mainwindow.h"
 #include <QMediaPlayer>
 
-QMediaPlayer *player = new QMediaPlayer;
+QMediaPlayer* player;
 
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow)
 {
+    player = new QMediaPlayer;
     ui->setupUi(this);
-
-
+    player->setMedia(QUrl::fromLocalFile("../res/words.wav"));
+    player->setVolume(100);
+    connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
+    connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
 }
 
 MainWindow::~MainWindow()
@@ -22,19 +25,16 @@ MainWindow::~MainWindow()
 //note - play() starts from beginning. does not resume if paused prior to press
 void MainWindow::on_playButton_clicked()
 {
-    if(!player->state() == player->PlayingState)
+    if(!player->state() == player->PlayingState || player->state() == player->PausedState)
     {
-        player->setMedia(QUrl::fromLocalFile("../res/words.wav"));
-        player->setVolume(100);
         player->play();
     }
     //this path will be different on your machine until we get the file system figured out
     else{
-
+        player->pause();
     }
 
-    connect(player, &QMediaPlayer::positionChanged, this, &MainWindow::on_positionChanged);
-    connect(player, &QMediaPlayer::durationChanged, this, &MainWindow::on_durationChanged);
+
 
 }
 
