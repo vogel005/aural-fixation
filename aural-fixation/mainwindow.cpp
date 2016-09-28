@@ -50,17 +50,17 @@ void MainWindow::on_pauseButton_clicked()
     player->pause();
 }
 
-void MainWindow::on_SliderProgress_sliderMoved(int position)
-{
-    player->setPosition(position);
-}
-
 void MainWindow::on_positionChanged(qint64 position)
 {
-    ui->SliderProgress->setValue(position);
+    ui->progressBar->setValue(position);
 }
 
 void MainWindow::on_durationChanged(qint64 position)
 {
-    ui->SliderProgress->setMaximum(position);
+    ui->progressBar->setMaximum(position);
+}
+
+void MainWindow::on_progressBar_valueChanged(int value)
+{
+     player->setPosition(value);
 }
