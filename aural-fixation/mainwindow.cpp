@@ -1,7 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include <QMediaPlayer>
-#include <QFileDialog>
 
 QMediaPlayer* player;
 
@@ -34,6 +33,9 @@ void MainWindow::on_playButton_clicked()
     else{
         player->pause();
     }
+
+
+
 }
 
 //Volume Slider
@@ -61,10 +63,4 @@ void MainWindow::on_durationChanged(qint64 position)
 void MainWindow::on_progressBar_valueChanged(int value)
 {
      player->setPosition(value);
-}
-
-void MainWindow::on_action_Add_New_Track_triggered()
-{
-    QStringList trackList = QFileDialog::getOpenFileNames(this, tr("Open File"),"../res",tr("Audio Files (*.mp3 *.wma *.wav)"));
-    player->setMedia(QUrl::fromLocalFile(trackList[0]));
 }

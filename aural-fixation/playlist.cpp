@@ -1,7 +1,9 @@
 #include "playlist.h"
 
-Playlist::Playlist(){}
+Playlist::Playlist()
+{
 
+}
 
 void Playlist::addTrack(AudioTrack selectedTrack)
 {
@@ -25,4 +27,5 @@ void Playlist::removeTrack(AudioTrack selectedTrack)
             trackListIterator = trackList.erase(trackListIterator);
         }
     }
+
 }
