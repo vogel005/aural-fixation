@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "playlist.h"
 
 namespace Ui {
 class MainWindow;
@@ -28,8 +29,11 @@ private slots:
 
     void on_progressBar_valueChanged(int value);
 
+    void on_action_Add_New_Track_triggered();
+
 private:
     Ui::MainWindow *ui;
+    Playlist* _playlist;
 };
 
 #endif // MAINWINDOW_H
