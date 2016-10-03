@@ -23,7 +23,10 @@ private slots:
 
     //void on_pauseButton_clicked();
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> trevor_c_branch
 
     void on_SliderProgress_sliderMoved(int position);
 >>>>>>> trevor_c_branch
@@ -34,7 +37,13 @@ private slots:
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     void on_progressBar_valueChanged(int value);
+=======
+    void on_actionAddNewTrack_triggered();
+
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
+>>>>>>> trevor_c_branch
 =======
     void on_actionAddNewTrack_triggered();
 

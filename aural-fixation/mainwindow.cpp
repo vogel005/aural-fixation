@@ -57,6 +57,7 @@ void MainWindow::on_horizontalSlider_sliderMoved(int position)
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 //Pause Button
 void MainWindow::on_pauseButton_clicked()
 {
@@ -65,6 +66,8 @@ void MainWindow::on_pauseButton_clicked()
 
 void MainWindow::on_positionChanged(qint64 position)
 =======
+=======
+>>>>>>> trevor_c_branch
 =======
 >>>>>>> trevor_c_branch
 void MainWindow::on_SliderProgress_sliderMoved(int position)
@@ -81,6 +84,27 @@ void MainWindow::on_durationChanged(qint64 position)
 void MainWindow::on_progressBar_valueChanged(int value)
 {
      player->setPosition(value);
+}
+
+void MainWindow::on_actionAddNewTrack_triggered()
+{
+    //save the filename
+    filename = QFileDialog::getOpenFileName(this, tr("Open File MMRS"), "C://", "Music File(*.mp3 *.wav *.wma);;");
+    //takes only the file name without the path
+    QFile f(filename);
+    QString name = f.fileName();
+    QStringList parts = name.split("/");
+    QString lastBit = parts.at(parts.size()-1);
+
+    //add the item to the UI list
+    ui->listWidget->addItem(lastBit);
+    ui->playButton->setText("Play");
+}
+
+void MainWindow::on_listWidget_itemDoubleClicked(QListWidgetItem *item)
+{
+    player->setMedia(QUrl::fromLocalFile(filename));
+    ui->currentSong->setText(item->text());
 }
 
 void MainWindow::on_actionAddNewTrack_triggered()
