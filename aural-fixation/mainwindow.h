@@ -2,6 +2,7 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QListWidgetItem>
 
 namespace Ui {
 class MainWindow;
@@ -20,13 +21,17 @@ private slots:
 
     void on_horizontalSlider_sliderMoved(int position);
 
-    void on_pauseButton_clicked();
+    //void on_pauseButton_clicked();
 
     void on_SliderProgress_sliderMoved(int position);
 
     void on_positionChanged(qint64 position);
 
     void on_durationChanged(qint64 position);
+
+    void on_actionAddNewTrack_triggered();
+
+    void on_listWidget_itemDoubleClicked(QListWidgetItem *item);
 
 private:
     Ui::MainWindow *ui;
